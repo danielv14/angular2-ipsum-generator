@@ -1,4 +1,4 @@
-h1,h3 {
+h1,h2,h3 {
     color: #00BCD4;
 }
 
@@ -11,4 +11,9 @@ h1,h3 {
     display: flex;
     justify-content: space-between;
     width: 100%;
+}
+
+.spinner {
+    text-align: center;
+    margin: 0 auto;
 }

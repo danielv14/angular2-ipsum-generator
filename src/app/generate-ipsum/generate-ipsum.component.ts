@@ -44,23 +44,27 @@ export class GenerateIpsumComponent implements OnInit {
   content: string;
   // types of hipter ipsum to be generated from API
   types = [
-    {value: 'hipster-latin', viewValue: 'Hipster Latin'},
-    {value: 'hipster-centric', viewValue: 'Hipster Centric'}
+    {value: 'hipster-latin', viewValue: 'Hipster + Latin'},
+    {value: 'hipster-centric', viewValue: 'Full-on Hipster'}
   ];
   // Set default selected text type to same as API default
-  selectedType: string = this.types[0].value;
+  selectedType: string = this.types[0].value
   // Set paragraphs count to same as API default
-  paragraphs: number = 4;
+  paragraphs: number = 4
   // Handle generated animation state for lorem text
-  lorem_state: string = 'de-spawn';
+  lorem_state: string = 'de-spawn'
+  // Loading state to handling showing or hiding of a loading spinner
+  loading: boolean = false
 
   // Click event to generate Hipster Ipsum paragraphs
   generate() {
+    if (!this.content) { this.loading = true } // only show loading spinner on the first http request
     this.lorem_state = 'de-spawn'
     this.hipsteripsumService.getIpsum(this.selectedType, this.paragraphs)
       .subscribe(data => {
-        this.content = data.text;
-        this.lorem_state = 'spawn';
+        this.content = data.text
+        this.lorem_state = 'spawn' // set animation state to spawn text
+        this.loading = false // remove loading spinner
       })    
   }
 
