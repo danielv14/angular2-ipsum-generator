@@ -14,11 +14,18 @@ import { HipsterIpsumService } from '../hipster-ipsum.service';
   templateUrl: './generate-ipsum.component.html',
   styleUrls: ['./generate-ipsum.component.scss'],
   animations: [
+    // Trigger to make md-card with generated lorem fly in
     trigger('flyIn', [
       transition(':enter', [
         style({transform: 'translateY(100%)'}),
         animate('500ms ease-in-out')
       ])
+    ]),
+    // Trigger for the genrated lorem paragraphs
+    trigger('generatedIpsum', [
+      state('spawn' , style({ opacity: 1 })), 
+      state('de-spawn', style({ opacity: 0 })),
+      transition('* => *', animate('500ms'))
     ])
   ]
 })
@@ -40,11 +47,18 @@ export class GenerateIpsumComponent implements OnInit {
   selectedType: string = this.types[0].value;
   // Set paragraphs count to same as API default
   paragraphs: number = 4;
+  // Handle generated animation state for lorem text
+  lorem_state: string = 'de-spawn';
 
   // Click event to generate Hipster Ipsum paragraphs
   generate() {
+    this.lorem_state = 'de-spawn'
     this.hipsteripsumService.getIpsum(this.selectedType, this.paragraphs)
-      .subscribe(data => this.content = data.text);
+      .subscribe(data => {
+        this.content = data.text;
+        this.lorem_state = 'spawn';
+      })
+      
   }
 
 }

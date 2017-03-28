@@ -1,7 +1,7 @@
 <md-card class="configure">
   <h1>Generate Hipster Ipsum Text</h1>
   <md-card-content>
-    <h3>Number of generated paragraphs</h3>
+    <h3>Number of paragraphs</h3>
     <md-slider
         [max]="10"
         [min]="1"
@@ -31,6 +31,6 @@
     <h3>Generated text</h3>
   </md-card-header>
   <md-card-content>
-    <div class="generated" [innerHTML]="content"></div>
+    <div class="generated" [@generatedIpsum]="lorem_state" [innerHTML]="content"></div>
   </md-card-content>
 </md-card>
