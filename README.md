@@ -1,5 +1,7 @@
 # HipsterIpsumGenerator
 
+ A Angular 2 application built with Material Design to generate Lorem Ipsum paragraphs and helps the user copy the text to clipboard
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
 ## Development server
