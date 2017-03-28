@@ -9,11 +9,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { HipsterIpsumService } from './hipster-ipsum.service';
+
 import 'hammerjs';
+import { GenerateIpsumComponent } from './generate-ipsum/generate-ipsum.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GenerateIpsumComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +27,7 @@ import 'hammerjs';
     BrowserAnimationsModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [HipsterIpsumService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

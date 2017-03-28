@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { GenerateIpsumComponent } from './generate-ipsum/generate-ipsum.component';
+
 const routes: Routes = [
   {
     path: '',
-    children: []
+    children: [],
+    component: GenerateIpsumComponent
+
   }
 ];
 

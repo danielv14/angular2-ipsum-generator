@@ -1,0 +1,36 @@
+<md-card class="configure">
+  <h1>Generate Hipster Ipsum Text</h1>
+  <md-card-content>
+    <h3>Number of generated paragraphs</h3>
+    <md-slider
+        [max]="10"
+        [min]="1"
+        [step]="1"
+        [thumb-label]="true"
+        [tick-interval]="1"
+        [value]="paragraphs"
+        [(ngModel)]="paragraphs">
+    </md-slider>
+    <!-- Select text type -->
+    <h3>Text type</h3>
+    <md-select placeholder="Select text type" [(ngModel)]="selectedType" name="type">
+      <md-option *ngFor="let type of types" [value]="type.value">
+        {{type.viewValue}}
+      </md-option>
+    </md-select>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button (click)="generate()">Generate ipsum</button>
+  </md-card-actions>
+</md-card>
+
+<br>
+
+<md-card *ngIf="content">
+  <md-card-header>
+    <h3>Generated text</h3>
+  </md-card-header>
+  <md-card-content>
+    <div class="generated" [innerHTML]="content"></div>
+  </md-card-content>
+</md-card>
