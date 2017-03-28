@@ -16,8 +16,8 @@ import { HipsterIpsumService } from '../hipster-ipsum.service';
   animations: [
     trigger('flyIn', [
       transition(':enter', [
-        style({transform: 'translateX(-100%)'}),
-        animate('400ms ease-in')
+        style({transform: 'translateY(100%)'}),
+        animate('500ms ease-in-out')
       ])
     ])
   ]
