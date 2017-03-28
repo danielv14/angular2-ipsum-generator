@@ -28,9 +28,12 @@
 
 <md-card *ngIf="content" [@flyIn]>
   <md-card-header>
-    <h3>Generated text</h3>
+    <div class="flexbox-container">
+      <h3>Generated text</h3>
+      <button md-mini-fab [ngxClipboard]="loremContent" (click)="copy()"><md-icon>content_cut</md-icon></button>
+    </div>
   </md-card-header>
   <md-card-content>
-    <div class="generated" [@generatedIpsum]="lorem_state" [innerHTML]="content"></div>
+    <div #loremContent class="generated" [@generatedIpsum]="lorem_state"  [innerHTML]="content">Loading...</div>
   </md-card-content>
 </md-card>

@@ -6,6 +6,8 @@ import { MaterialModule } from '@angular/material';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { ClipboardModule } from 'ngx-clipboard';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -25,7 +27,8 @@ import { GenerateIpsumComponent } from './generate-ipsum/generate-ipsum.componen
     HttpModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    ClipboardModule
   ],
   providers: [HipsterIpsumService],
   bootstrap: [AppComponent]

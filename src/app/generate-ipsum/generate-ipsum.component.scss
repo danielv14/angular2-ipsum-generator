@@ -6,3 +6,9 @@ h1,h3 {
    font-size: 1.2rem;
    line-height: 1.8rem;
 }
+
+.flexbox-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}

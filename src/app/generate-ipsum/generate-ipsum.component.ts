@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MdSnackBar} from '@angular/material';
 import {
   trigger,
   state,
@@ -32,7 +33,10 @@ import { HipsterIpsumService } from '../hipster-ipsum.service';
 
 export class GenerateIpsumComponent implements OnInit {
 
-  constructor(private hipsteripsumService: HipsterIpsumService) { }
+  constructor(
+    private hipsteripsumService: HipsterIpsumService,
+    public snackBar: MdSnackBar
+  ) { }
 
   ngOnInit() { }
 
@@ -57,8 +61,14 @@ export class GenerateIpsumComponent implements OnInit {
       .subscribe(data => {
         this.content = data.text;
         this.lorem_state = 'spawn';
-      })
-      
+      })    
+  }
+
+  // Trigger md-snackbar info when lorem get's copied to clipboard
+  copy() {
+    this.snackBar.open('Text copied to clipboard!', 'OK', {
+      duration: 2000,
+    });
   }
 
 }
