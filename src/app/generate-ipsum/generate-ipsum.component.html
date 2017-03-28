@@ -29,12 +29,10 @@
 <md-spinner *ngIf="loading" class="spinner" color="accent"></md-spinner>
 
 <md-card *ngIf="content" [@flyIn]>
-
-    <div class="flexbox-container">
-      <h2>Generated text</h2>
-      <button md-mini-fab [ngxClipboard]="loremContent" (click)="copy()"><md-icon>content_copy</md-icon></button>
-    </div>
-
+  <div class="flexbox-container">
+    <h2>Generated text</h2>
+    <button md-mini-fab [ngxClipboard]="loremContent" (click)="copy()"><md-icon>content_copy</md-icon></button>
+  </div>
   <md-card-content>
     <div #loremContent class="generated" [@generatedIpsum]="lorem_state"  [innerHTML]="content">Loading...</div>
   </md-card-content>
