@@ -22,7 +22,7 @@ export class HipsterIpsumService {
    * 
    * @memberOf HipsterIpsumService
    */
-  getIpsum(type: string, paragraphs: number) {
+  getIpsum(type: string = 'hipster-latin', paragraphs: number = 4) {
     return this.http.get(`http://hipsterjesus.com/api/?paras=${paragraphs}&type=${type}&html=true`)
     .map((res:Response) => res.json());
   }

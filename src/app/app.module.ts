@@ -31,6 +31,10 @@ import { GenerateIpsumComponent } from './generate-ipsum/generate-ipsum.componen
     ClipboardModule
   ],
   providers: [HipsterIpsumService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [
+   MaterialModule,
+   ClipboardModule
+  ]
 })
 export class AppModule { }
